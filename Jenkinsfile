@@ -5,7 +5,7 @@ pipeline {
         stage('Build & Unit Test') {
             steps {
                 println "Stage: ${env.STAGE_NAME}"
-				gradle build
+				sh "gradle build"
             }
         }
 		
