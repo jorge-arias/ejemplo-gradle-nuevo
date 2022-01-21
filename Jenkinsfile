@@ -24,7 +24,7 @@ pipeline {
         stage('Run') {
             steps {
                 println "Stage: ${env.STAGE_NAME}"
-				gradle bootRun &
+				sh "gradle bootRun &"
             }
         }
 
