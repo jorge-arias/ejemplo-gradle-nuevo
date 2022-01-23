@@ -10,12 +10,12 @@ pipeline {
             steps {
                 println "Pipeline"
 				
-				if (params.buildTool == "gradle"){
-					def ejecucion = load "gradle.groovy"
+				if (params.buildTool == 'gradle'){
+					def ejecucion = load 'gradle.groovy'
 					ejecucion.call()
 				}
 				else{
-					def ejecucion = load "maven.groovy"
+					def ejecucion = load 'maven.groovy'
 					ejecucion.call()
 				}
             }
