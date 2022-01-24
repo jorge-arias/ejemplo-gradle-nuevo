@@ -9,7 +9,7 @@ pipeline {
         stage('Pipeline') {
             steps {
                 println "Pipeline"
-				
+script{				
 				if (params.buildTool == 'gradle'){
 					def ejecucion = load 'gradle.groovy'
 					ejecucion.call()
@@ -18,6 +18,7 @@ pipeline {
 					def ejecucion = load 'maven.groovy'
 					ejecucion.call()
 				}
+}
             }
         }
     }
