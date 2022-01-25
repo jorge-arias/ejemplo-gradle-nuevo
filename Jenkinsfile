@@ -28,10 +28,10 @@ pipeline {
     }
 	post {
         failure {
-            slackSend color: '#FF0000', message: "Jorge Arias | ${env.JOB_NAME} | ${env.buildTool} | Ejecución fallida en el stage: ${env.STAGE}")
+            slackSend color: '#FF0000', message: "Jorge Arias | ${env.JOB_NAME} | ${env.buildTool} | Ejecución fallida en el stage: ${env.STAGE}"
         }
 		success{
-			slackSend color: '#00FF00', message: "Jorge Arias | ${env.JOB_NAME} | ${env.buildTool} | Ejecución exitosa")
+			slackSend color: '#00FF00', message: "Jorge Arias | ${env.JOB_NAME} | ${env.buildTool} | Ejecución exitosa"
 		}
     }
 }
