@@ -6,12 +6,14 @@
 
 def call(){
   
-          stage('Build & Unit Test') {
+        stage('Build & Unit Test') {
+			STAGE = env.STAGE_NAME
 			println "Stage: ${env.STAGE_NAME}"
 			sh "gradle build"
         }
 		
         stage('Sonar') {
+			STAGE = env.STAGE_NAME
 			println "Stage: ${env.STAGE_NAME}"
 			def scannerHome = tool 'sonar-scanner';
 			withSonarQubeEnv('sonar-server') {
@@ -20,17 +22,21 @@ def call(){
         }
         
         stage('Run') {
+			STAGE = env.STAGE_NAME
 			println "Stage: ${env.STAGE_NAME}"
 			sh "gradle bootRun &"
 			sleep 20
         }
 
 		stage('Test') {
+			STAGE = env.STAGE_NAME
 			println "Stage: ${env.STAGE_NAME}"
 			sh "curl -X GET 'http://localhost:8082/rest/mscovid/test?msg=testing'"
         }
 
 		stage('nexus') {
+			STAGE = env.STAGE_NAME
+			println "Stage: ${env.STAGE_NAME}"
 			nexusPublisher nexusInstanceId: 'nexus-server',
 			nexusRepositoryId: 'test-nexus',
 			packages: [
