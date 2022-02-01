@@ -1,5 +1,3 @@
-Webhook test
-
 # Getting Started
 
 ## Linux
